@@ -13,8 +13,22 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
 config :shoehorn,
-  init: [:nerves_runtime],
+  init: [:nerves_runtime, :nerves_init_gadget],
   app: Mix.Project.config()[:app]
+
+config :nerves_firmware_ssh,
+  authorized_keys: [
+    File.read!(Path.join(System.user_home!, ".ssh/authorized_keys"))
+  ]
+
+config :nerves_init_gadget,
+  ifname: "eth0",
+  address_method: :dhcp,
+  mdns_domain: nil,
+  node_name: nil,
+  # node_name: "hello_nerves_ec2",
+  node_host: :ip,
+  ssh_console_port: 22
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
