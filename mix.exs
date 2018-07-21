@@ -59,5 +59,8 @@ defmodule HelloNervesEc2.MixProject do
   defp system("ev3"), do: [{:nerves_system_ev3, "~> 1.0", runtime: false}]
   defp system("qemu_arm"), do: [{:nerves_system_qemu_arm, "~> 1.0", runtime: false}]
   defp system("x86_64"), do: [{:nerves_system_x86_64, "~> 1.0", runtime: false}]
+  # defp system("ec2"), do: [{:nerves_system_ec2, "~> 1.0", runtime: false}]
+  # defp system("ec2"), do: [{:nerves_system_ec2, path: "../nerves_system_ec2", runtime: false}]
+  defp system("ec2"), do: [{:nerves_system_ec2, path: "../nerves_system_ec2", runtime: false, nerves: [compile: true]}]
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end
