@@ -13,13 +13,13 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
 config :shoehorn,
-  init: [:nerves_runtime, :nerves_init_gadget],
+  init: [:nerves_runtime, :nerves_config_ec2, :nerves_init_gadget],
   app: Mix.Project.config()[:app]
 
-config :nerves_firmware_ssh,
-  authorized_keys: [
-    File.read!(Path.join(System.user_home!, ".ssh/authorized_keys"))
-  ]
+# config :nerves_firmware_ssh,
+#   authorized_keys: [
+#     File.read!(Path.join(System.user_home!, ".ssh/authorized_keys"))
+#   ]
 
 config :nerves_init_gadget,
   ifname: "eth0",
