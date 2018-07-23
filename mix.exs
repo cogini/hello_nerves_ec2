@@ -50,6 +50,7 @@ defmodule HelloNervesEc2.MixProject do
       {:nerves_runtime, "~> 0.4"},
       {:nerves_init_gadget, "~> 0.3"},
       {:nerves_config_ec2, github: "cogini/nerves_config_ec2"},
+      # {:nerves_config_ec2, path: "../nerves_config_ec2"}
     ] ++ system(target)
   end
 
