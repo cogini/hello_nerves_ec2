@@ -1,4 +1,4 @@
-# HelloNervesEc2
+# hello_nerves_ec2
 
 **TODO: Add description**
 
