@@ -30,9 +30,11 @@ config :nerves_firmware_ssh,
   ]
 
 config :nerves_init_ec2,
-  ifname: "eth0",
-  address_method: :dhcp,
-  node_host: :ip,
+  # ifname: "eth0",
+  # address_method: :dhcp,
+  # net_kernel: false,
+  # node_name: "nerves",
+  # node_name_public: false,
   ssh_console_port: 22,
   ssh_authorized_keys: [
     # File.read!(Path.join(System.user_home!, ".ssh/authorized_keys"))
