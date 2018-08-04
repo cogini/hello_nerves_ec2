@@ -7,10 +7,14 @@
 set -e
 
 VOLUME_ID=$1
-SECURITY_GROUP=sg-94bafcec
+SECURITY_GROUP=nerves
 NAME=nerves
 TAG_OWNER=jake
 KEYPAIR=cogini-jake
+
+SECURITY_GROUP_ID=$( aws ec2 describe-security-groups \
+    --group-names "$SECURITY_GROUP" \
+    --query "SecurityGroups[0].GroupId" --output text)
 
 getVolumeIdentifier() {
   aws ec2 describe-instances \
@@ -73,7 +77,7 @@ IMAGE_ID=$(aws ec2 register-image --architecture x86_64 \
 
 echo "Starting instance with AMI $IMAGE_ID"
 INSTANCE_ID=$(aws ec2 run-instances --image-id "$IMAGE_ID" --instance-type t2.micro --key-name $KEYPAIR \
-    --associate-public-ip-address --security-group-ids $SECURITY_GROUP \
+    --associate-public-ip-address --security-group-ids $SECURITY_GROUP_ID \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$NAME},{Key=owner,Value=$TAG_OWNER}]" \
     --query Instances[0].InstanceId --output text)
 
