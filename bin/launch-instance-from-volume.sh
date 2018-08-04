@@ -10,7 +10,7 @@ VOLUME_ID=$1
 SECURITY_GROUP=nerves
 NAME=nerves
 TAG_OWNER=jake
-KEYPAIR=cogini-jake
+KEYPAIR=nerves
 
 SECURITY_GROUP_ID=$( aws ec2 describe-security-groups \
     --group-names "$SECURITY_GROUP" \
