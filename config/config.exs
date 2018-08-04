@@ -19,11 +19,6 @@ config :shoehorn,
   init: [:nerves_runtime, :nerves_init_ec2],
   app: Mix.Project.config()[:app]
 
-# config :nerves_network, :default,
-#   eth0: [
-#     ipv4_address_method: :dhcp
-#   ]
-
 # config :nerves_firmware_ssh,
 #   authorized_keys: [
 #     File.read!(Path.join(System.user_home!, ".ssh/authorized_keys"))
