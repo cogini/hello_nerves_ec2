@@ -6,10 +6,9 @@
 use Mix.Config
 
 # Add the RingLogger backend. This removes the default :console backend.
-# config :logger, backends: [:console, RingLogger]
+# config :logger, backends: [RingLogger]
 
 config :logger, backends: [:console, RingLogger, CloudWatch]
-# config :logger, backends: [:console, CloudWatch]
 
 config :logger, CloudWatch,
   log_group_name: "hello_nerves"
