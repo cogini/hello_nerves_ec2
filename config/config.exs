@@ -9,9 +9,6 @@ use Mix.Config
 # config :logger, backends: [RingLogger]
 config :logger, backends: [:console, RingLogger, CloudWatch]
 
-
-config :logger, backends: [:console, RingLogger, CloudWatch]
-
 config :logger, CloudWatch,
   log_group_name: "hello_nerves"
 
