@@ -7,6 +7,8 @@ use Mix.Config
 
 # Add the RingLogger backend. This removes the default :console backend.
 # config :logger, backends: [RingLogger]
+config :logger, backends: [:console, RingLogger, CloudWatch]
+
 
 # Customize non-Elixir parts of the firmware.  See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.
