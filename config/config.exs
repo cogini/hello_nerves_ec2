@@ -10,6 +10,14 @@ use Mix.Config
 config :logger, backends: [:console, RingLogger, CloudWatch]
 
 
+config :logger, backends: [:console, RingLogger, CloudWatch]
+
+config :logger, CloudWatch,
+  log_group_name: "hello_nerves"
+
+config :ex_aws,
+  region: "ap-northeast-1"
+
 # Customize non-Elixir parts of the firmware.  See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.
 config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"

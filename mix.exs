@@ -48,8 +48,13 @@ defmodule HelloNervesEc2.MixProject do
   defp deps(target) do
     [
       {:nerves_runtime, "~> 0.4"},
-      {:nerves_init_ec2, path: "../nerves_init_ec2"}
       # {:nerves_init_ec2, github: "cogini/nerves_init_ec2"},
+      {:nerves_init_ec2, path: "../nerves_init_ec2"},
+      # {:cloud_watch, github: "cogini/cloud_watch", branch: "metadata-config"},
+      {:cloud_watch, path: "../cloud_watch"},
+      {:ex_aws, "~> 2.0"},
+      # {:aws, "~> 0.5.0"},
+      {:observer_cli, "~> 1.3"},
     ] ++ system(target)
   end
 
